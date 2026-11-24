@@ -1,0 +1,57 @@
+@use 'sass:math';
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300..700&display=swap');
+
+$font-body: "Geist", sans-serif;
+
+// Colours — from the Style Guide page in Figma (all pairings pass WCAG AAA)
+$color-primary: #0054A0;              // white text on it
+$color-primary-dark: #003F7A;         // overlays + scrims behind text
+$color-secondary: #42C1F3;            // decoration only, or black text on it
+$color-blue-tint: #BFE3F8;            // large text on $color-primary only
+$color-light: #FFFFFF;
+$color-surface: #F2F2F2;              // cards, pills, form backgrounds
+$color-text: #000000;
+$color-text-muted: #595959;           // secondary text on white
+$color-text-muted-surface: #515151;   // secondary text on $color-surface
+
+// Gradients
+$gradient-hero: linear-gradient(to bottom, $color-primary 0%, $color-primary 55%, $color-secondary 100%);
+$gradient-section: linear-gradient(to bottom, $color-light, #2896D2);
+
+// Type scale — nothing below 1rem (16px)
+$fs-display-mobile: 3rem;      // 48px
+$fs-display: 5rem;             // 80px
+$fs-heading-mobile: 2.625rem;  // 42px
+$fs-heading: 3.5rem;           // 56px
+$fs-subheading: 1.75rem;       // 28px
+$fs-card: 1.5rem;              // 24px
+$fs-lead: 1.25rem;             // 20px
+$fs-body: 1.125rem;            // 18px
+$fs-small: 1rem;               // 16px — the minimum
+
+// Spacing
+$padding: clamp(1rem, 2vw, 1.5rem);
+$space-xs: 0.5rem;
+$space-s: 1rem;
+$space-m: 1.5rem;
+$space-l: 2rem;
+$space-xl: 4rem;
+$space-xxl: 7.5rem;
+
+$radius: 1rem;
+$radius-pill: 999px;
+
+// Function: px to em for media queries
+@function em($px, $bc: 16) {
+    @return #{math.div($px, $bc)}em;
+}
+
+// Breakpoints — mobile first (320px up to 1920px)
+$tablet: em(768);
+$laptop: em(1140);
+$desktop: em(1400);
+
+// Utility variables
+$link-hover-selector: '&:hover, &:focus, &:active';

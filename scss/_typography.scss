@@ -1,0 +1,27 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+body {
+    font-family: $font-body;
+    font-size: $fs-small;
+    line-height: 1.5;
+
+    @include mq-tab {
+        font-size: $fs-body;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 500;
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty; // helps avoid single-word last lines
+}

@@ -1,0 +1,22 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Skip link — hidden until it receives keyboard focus
+.skip-link {
+    @extend %visually-hidden;
+
+    &:focus {
+        position: fixed;
+        top: $space-s;
+        left: $space-s;
+        z-index: 100;
+        width: auto;
+        height: auto;
+        margin: 0;
+        clip: auto;
+        padding: 0.75rem 1.25rem;
+        background-color: $color-text;
+        color: $color-light;
+        border-radius: 0.5rem;
+    }
+}

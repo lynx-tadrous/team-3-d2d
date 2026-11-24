@@ -1,0 +1,62 @@
+@use 'variables' as *;
+
+// Flex layout — change only what you need, e.g. @include flex($jc: space-between);
+@mixin flex($d: row, $jc: center, $ai: center, $wrap: nowrap, $gap: 1rem) {
+    display: flex;
+    flex-direction: $d;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-wrap: $wrap;
+    gap: $gap;
+}
+
+// Grid layout — e.g. @include grid(3, $space-l); for the property cards
+@mixin grid($cols: 1, $gap: $space-m) {
+    display: grid;
+    grid-template-columns: repeat($cols, minmax(0, 1fr));
+    gap: $gap;
+}
+
+// Media queries — mobile first
+@mixin mq-tab {
+    @media (min-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin mq-laptop {
+    @media (min-width: $laptop) {
+        @content;
+    }
+}
+
+@mixin mq-desktop {
+    @media (min-width: $desktop) {
+        @content;
+    }
+}
+
+// Placeholders — use with @extend
+%flatten {
+    padding: 0;
+    margin: 0;
+}
+
+// Hidden on screen, still read by screen readers
+%visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+// Focus ring from the Style Guide (use $color-light on dark sections)
+%focus-ring {
+    outline: 2px solid $color-primary;
+    outline-offset: 3px;
+}
